@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "49082114757",
+    "firebase_url": "https://demolocation-267016.firebaseio.com",
+    "project_id": "demolocation-267016",
+    "storage_bucket": "demolocation-267016.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49082114757:android:176ee86cf7ef20c13606ac",
+        "android_client_info": {
+          "package_name": "com.notification.group.demo.demolocationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49082114757-psgodicm50ukf49uubgumvhr4naj04o8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-NgcXnidtKQS_xB94Wp8Zc_dlHC8POfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49082114757-psgodicm50ukf49uubgumvhr4naj04o8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
