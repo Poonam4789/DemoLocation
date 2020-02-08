@@ -5,14 +5,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.notification.group.demo.demolocationapp.utils.DrawMapHelper;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Set;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private LinkedHashMap<String,String> _mapList = new LinkedHashMap<>();
     private GoogleMap mMap;
     private SupportMapFragment mapFragment;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -80,6 +83,31 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         if(mMap!=null)
         {
             DrawMapHelper.getInstance(this).drawPolygonFromJson(mMap, "hub.json");
+
+            mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
+            {
+                @Override
+                public void onMapClick(LatLng latLng)
+                {
+                    boolean isInsideGeoFence = isLocationWithinArea(latLng.latitude,latLng.longitude, LocationRequest.PRIORITY_HIGH_ACCURACY);
+                    String txt = "Inside Geo Fence = "+isInsideGeoFence;
+                    Toast.makeText(MainActivity.this,txt,Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    private boolean isLocationWithinArea(double latitude,double longitude, double accuracy){
+        List<LatLng>latLngList = DrawMapHelper.getInstance(this).getLatLngList();
+
+        if(latLngList!=null && latLngList.size()>0){
+            if(DrawMapHelper.getInstance(this).PointIsInRegion(latitude,longitude,latLngList)){
+                return true;
+            }else{
+                return false;
+            }
+        }else {
+            return false;
         }
     }
 

@@ -13,8 +13,23 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
-        android:text="Geo Fence Area"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:text="@string/header"
         android:textColor="@android:color/holo_orange_dark"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_sub_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_header"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="@string/click_info"
+        android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -24,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/geofenceSelector"
-        android:layout_below="@+id/tv_header"
+        android:layout_below="@+id/tv_sub_header"
         android:layout_margin="10dp" />
 
     <androidx.appcompat.widget.AppCompatSpinner
@@ -32,5 +47,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:paddingBottom="10dp" />
 </RelativeLayout>

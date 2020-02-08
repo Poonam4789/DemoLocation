@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DemoLocationApp</string>
+    <string name="click_info">Click on map area to get information about inside or outside geofence.</string>
+    <string name="header">Geo Fence Area</string>
 </resources>
